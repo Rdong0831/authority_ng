@@ -1,0 +1,23 @@
+.p-tag {
+  // font-feature-settings: "tnum", "tnum";
+  border: 1px solid #d9d9d9;
+  border-radius: 5px;
+  font-size: 12px !important;
+  font-weight: normal !important;
+  // font-variant: tabular-nums;
+  height: auto;
+  line-height: 20px;
+  list-style: none;
+  opacity: 1;
+  padding: 0 7px !important;
+  background: #f6f0ff !important;
+  border-color: #ceb8fc !important;
+  color: #5936d5 !important;
+  transition: all .3s;
+}
+
+.tags-group {
+  >* {
+    margin-right: 8px;
+  }
+}

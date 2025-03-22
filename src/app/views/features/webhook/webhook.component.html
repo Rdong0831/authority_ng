@@ -1,0 +1,50 @@
+<p-table [value]="webhooks" styleClass="p-datatable-gridlines" [rows]="10" [showCurrentPageReport]="true"
+  responsiveLayout="scroll" [paginator]="true" currentPageReportTemplate="總共 {totalRecords} 筆資料"
+  [rowsPerPageOptions]="[10,25,50]">
+  <ng-template pTemplate="caption">
+    Webhooks
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <button pButton type="button" class="p-button-help p-button-sm" label="Add" routerLink="./add-webhook"></button>
+
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Organization</th>
+      <th>Name</th>
+      <th>Created time</th>
+      <th>URL</th>
+      <th>Method</th>
+      <th>Content type</th>
+      <th>Events</th>
+      <th>Is user extended</th>
+      <th>Is enabled</th>
+      <th class="table-sticky-right">Action</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-webhook let-rowIndex="rowIndex">
+    <tr>
+      <td>{{webhook.organization}}</td>
+      <td>{{webhook.name}}</td>
+      <td>{{webhook.created_at | date: 'yyyy-MM-dd HH:mm'}}</td>
+      <td>{{webhook.url}}</td>
+      <td>{{webhook.method}}</td>
+      <td>{{webhook.content_type}}</td>
+      <td class="tags-group">
+        <p-tag [value]="item" *ngFor="let item of webhook.events"></p-tag>
+
+      </td>
+      <td>
+        <p-inputSwitch [(ngModel)]="webhook.is_user_extended"></p-inputSwitch>
+      </td>
+      <td>
+        <p-inputSwitch [(ngModel)]="webhook.is_enabled"></p-inputSwitch>
+      </td>
+      <td class="table-sticky-right">
+        <button routerLink="./add-webhook/{{rowIndex}}" pButton type="button" class="p-button-help" label="Edit"
+          style="margin-top: 10px; margin-bottom: 10px;"></button>
+        <button pButton type="button" class="p-button-danger" label="Delete"
+          style="margin-top: 10px; margin-bottom: 10px;"></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

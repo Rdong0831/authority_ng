@@ -1,0 +1,16 @@
+.p-tooltip {
+  margin-left: 7.5px;
+  padding-bottom: 14px !important;
+
+  .p-tooltip-text {
+    padding: 6px 8px !important;
+    font-size: 14px;
+  }
+
+  .p-tooltip-arrow {
+    left: calc(24px - (16px / 2)) !important;
+    bottom: 8px !important;
+    width: 16px;
+    border-width: 10px 10px 0 !important;
+  }
+}

@@ -1,0 +1,11 @@
+::ng-deep {
+  .overlay-menu {
+    .p-menu .p-menuitem-link:not(.p-disabled):hover {
+      background-color: unset !important;
+      span {
+        transition: all 0.3s;
+        color: #5936d5;
+      }
+    }
+  }
+}

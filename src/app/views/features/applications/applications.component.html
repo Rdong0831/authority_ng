@@ -1,0 +1,63 @@
+<p-table [value]="applications" styleClass="p-datatable-gridlines" [rows]="10" [showCurrentPageReport]="true"
+  responsiveLayout="scroll" [paginator]="true" currentPageReportTemplate="總共 {totalRecords} 筆資料"
+  [rowsPerPageOptions]="[10,25,50]">
+  <ng-template pTemplate="caption">
+    Applications
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <button pButton type="button" class="p-button-help p-button-sm" label="Add" routerLink="./add-application"></button>
+
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th class="table-sticky-left">Name</th>
+      <th>Created time</th>
+      <th>Display Name</th>
+      <th>Logo</th>
+      <th>Organization</th>
+      <th>Providers</th>
+      <th class="table-sticky-right">Action</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-applications let-rowIndex="rowIndex">
+    <tr>
+      <td class="table-sticky-left"><a href="">{{applications.name}}</a></td>
+      <td>{{applications.created_at | date: 'yyyy-MM-dd HH:mm'}}</td>
+      <td>{{applications.display_name}}</td>
+      <td><img class="table-logo" src="{{applications.logo}}"></td>
+      <td><a href="">{{applications.organization}}</a></td>
+      <td>
+        <div class="table-providers-btn-group">
+          <ng-container *ngIf="checkData(applications.providers); else noneData">
+            <ul>
+              <li *ngFor="let item of dataSplitByAmount(this.applications.providers, 2,1)">
+                <a href="">
+                  <button pButton pRipple icon="pi pi-pencil" type="button" class="p-button-outlined p-button-secondary"
+                    pTooltip="Edit" tooltipPosition="top"></button>
+                  {{item}}
+                </a>
+              </li>
+            </ul>
+            <ul>
+              <li *ngFor="let item of dataSplitByAmount(this.applications.providers, 2,2)">
+                <a href="">
+                  <button pButton pRipple icon="pi pi-pencil" type="button" class="p-button-outlined p-button-secondary"
+                    pTooltip="Edit" tooltipPosition="top"></button>
+                  {{item}}
+                </a>
+              </li>
+            </ul>
+          </ng-container>
+          <ng-template #noneData>
+            (empty)
+          </ng-template>
+        </div>
+      </td>
+      <td class="table-sticky-right">
+        <button pButton type="button" class="p-button-help" label="Edit" style="margin-top: 10px; margin-bottom: 10px;"
+          routerLink="./add-application/{{rowIndex}}"></button>
+        <button pButton type="button" class="p-button-danger" label="Delete"
+          style="margin-top: 10px; margin-bottom: 10px;"></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

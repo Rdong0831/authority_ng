@@ -1,0 +1,71 @@
+<p-table [value]="permissions" styleClass="p-datatable-gridlines" [rows]="10" [showCurrentPageReport]="true"
+  responsiveLayout="scroll" [paginator]="true" currentPageReportTemplate="總共 {totalRecords} 筆資料"
+  [rowsPerPageOptions]="[10,25,50]">
+  <ng-template pTemplate="caption">
+    Permissions
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <button pButton type="button" class="p-button-help p-button-sm" label="Add" routerLink="./add-permissions"></button>
+
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th class="table-sticky-left">Name</th>
+      <th>Organization</th>
+      <th>Created time</th>
+      <th>Display Name</th>
+      <th>Sub users</th>
+      <th>Sub roles</th>
+      <th>Sub domains</th>
+      <th>Resource type</th>
+      <th>Resources</th>
+      <th>Actions</th>
+      <th>Effect</th>
+      <th>Is enabled</th>
+      <th>Submitter</th>
+      <th>Approver</th>
+      <th>Approve time</th>
+      <th>State</th>
+      <th class="table-sticky-right">Action</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-permissions let-rowIndex="rowIndex">
+    <tr>
+      <td class="table-sticky-left"><a href="">{{permissions.name}}</a></td>
+      <td><a href="">{{permissions.organization}}</a></td>
+      <td>{{permissions.created_at | date: 'yyyy-MM-dd HH:mm'}}</td>
+      <td>{{permissions.display_name}}</td>
+      <td class="tags-group">
+        <p-tag [value]="item" *ngFor="let item of permissions.sub_users"></p-tag>
+      </td>
+      <td>
+        <p-tag>{{permissions.sub_roles}}</p-tag>
+      </td>
+      <td>{{permissions.sub_domains}}</td>
+      <td>{{permissions.resource_type}}</td>
+      <td>
+        <p-tag>{{permissions.resources}}</p-tag>
+      </td>
+      <td class="tags-group">
+        <p-tag [value]="item" *ngFor="let item of permissions.actions"></p-tag>
+      </td>
+      <td>
+        <p-tag class="success">{{permissions.effect}}</p-tag>
+      </td>
+      <td>
+        <p-inputSwitch [disabled]="true" [(ngModel)]="permissions.is_enabled"></p-inputSwitch>
+      </td>
+      <td>{{permissions.submitter}}</td>
+      <td>{{permissions.approver}}</td>
+      <td>{{permissions.approve_time}}</td>
+      <td>
+        <p-tag severity="danger">{{permissions.state}}</p-tag>
+      </td>
+      <td class="table-sticky-right">
+        <button pButton type="button" class="p-button-help" label="Edit" routerLink="./add-permissions/{{rowIndex}}"
+          style="margin-top: 10px; margin-bottom: 10px;"></button>
+        <button pButton type="button" class="p-button-danger" label="Delete"
+          style="margin-top: 10px; margin-bottom: 10px;"></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

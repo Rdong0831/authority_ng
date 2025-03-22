@@ -1,0 +1,227 @@
+<p-card>
+  <ng-template pTemplate="header">
+    <ng-container *ngIf="id; else elseTemplate">
+      修改
+    </ng-container>
+    <ng-template #elseTemplate>
+      新增
+    </ng-template>
+    Permission
+    &nbsp;&nbsp;&nbsp;
+    <button pButton type="button" class="p-button-outlined" label="Save"></button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button pButton type="button" class="p-button-help" label="Save & Exit" (click)="back()"></button>
+  </ng-template>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Organization:
+      </span>
+    </div>
+    <div class="col-11">
+      <div class="inupt-select">
+        <p-dropdown [options]="organization" optionLabel="name"></p-dropdown>
+      </div>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Name:
+      </span>
+    </div>
+    <div class="col-11">
+      <input type="text" pInputText>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Display name:
+      </span>
+    </div>
+    <div class="col-11">
+      <input type="text" pInputText>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Model:
+      </span>
+    </div>
+    <div class="col-11">
+      <div class="inupt-select">
+        <p-dropdown optionLabel="name"></p-dropdown>
+      </div>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Adapter:
+      </span>
+    </div>
+    <div class="col-11">
+      <input type="text" pInputText>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Sub users:
+      </span>
+    </div>
+    <div class="col-11">
+      <p-autoComplete [(ngModel)]="texts" [suggestions]="results" (completeMethod)="search($event)"
+        (onKeyUp)="onKeyUp($event)" [multiple]="true" (onDropdownClick)="log()"></p-autoComplete>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Sub roles:
+      </span>
+    </div>
+    <div class="col-11">
+      <p-autoComplete [(ngModel)]="texts" [suggestions]="results" (completeMethod)="search($event)"
+        (onKeyUp)="onKeyUp($event)" [multiple]="true" (onDropdownClick)="log()" [disabled]="true"></p-autoComplete>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Sub domains:
+      </span>
+    </div>
+    <div class="col-11">
+      <p-autoComplete [(ngModel)]="texts" [suggestions]="results" (completeMethod)="search($event)"
+        (onKeyUp)="onKeyUp($event)" [multiple]="true" (onDropdownClick)="log()"></p-autoComplete>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Resource type:
+      </span>
+    </div>
+    <div class="col-11">
+      <div class="inupt-select">
+        <p-dropdown [options]="resource_type" optionLabel="name"></p-dropdown>
+      </div>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Resource:
+      </span>
+    </div>
+    <div class="col-11">
+      <p-autoComplete [(ngModel)]="texts" [suggestions]="results" (completeMethod)="search($event)"
+        (onKeyUp)="onKeyUp($event)" [multiple]="true" (onDropdownClick)="log()"></p-autoComplete>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Actions:
+      </span>
+    </div>
+    <div class="col-11">
+      <p-autoComplete [(ngModel)]="texts" [suggestions]="results" (completeMethod)="search($event)"
+        (onKeyUp)="onKeyUp($event)" [multiple]="true" (onDropdownClick)="log()"></p-autoComplete>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Effect:
+      </span>
+    </div>
+    <div class="col-11">
+      <div class="inupt-select">
+        <p-dropdown [options]="effect" optionLabel="name"></p-dropdown>
+      </div>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Is enabled:
+      </span>
+    </div>
+    <div class="col-11">
+      <p-inputSwitch></p-inputSwitch>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Submitter:
+      </span>
+    </div>
+    <div class="col-11">
+      <input type="text" pInputText disabled>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Approver:
+      </span>
+    </div>
+    <div class="col-11">
+      <input type="text" pInputText disabled>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Approve time:
+      </span>
+    </div>
+    <div class="col-11">
+      <p-calendar dateFormat="yy-mm-dd" [disabled]="true"></p-calendar>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        State:
+      </span>
+    </div>
+    <div class="col-11">
+      <div class="inupt-select">
+        <p-dropdown [options]="state" optionLabel="name"></p-dropdown>
+      </div>
+    </div>
+  </div>
+
+  <ng-template pTemplate="footer">
+
+  </ng-template>
+</p-card>
+
+<div class="card-btn-group">
+  <button pButton type="button" class="p-button-outlined p-button-lg" label="Save"></button>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <button pButton type="button" class="p-button-help p-button-lg" label="Save & Exit" (click)="back()"></button>
+</div>

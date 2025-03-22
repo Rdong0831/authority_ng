@@ -1,0 +1,29 @@
+@import '/src/scss/custom';
+
+.wrapper {
+  // min-height: calc(100vh - 60px - $footer-Height);
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  height: 100%;
+  background-color: rgb(245, 245, 245);
+
+  @include media-breakpoint-down(xs) {
+    // min-height: calc(100vh - 60px - $footer-Height-md);
+  }
+
+  .content {
+    flex-grow: 1;
+    margin: 5px;
+    border-radius: 5px;
+    padding: 24px;
+    background-color: #fff;
+    box-shadow: 0 1px 5px 0 rgba(51, 51, 51, 0.14);
+    border: 1px solid #f0f0f0;
+
+    @include media-breakpoint-down(xs) {}
+  }
+}
+
+
+:host ::ng-deep {}

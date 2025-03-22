@@ -1,0 +1,191 @@
+<p-card>
+  <ng-template pTemplate="header">
+    <ng-container *ngIf="id; else elseTemplate">
+      修改
+    </ng-container>
+    <ng-template #elseTemplate>
+      新增
+    </ng-template>
+    provider
+    &nbsp;&nbsp;&nbsp;
+    <button pButton type="button" class="p-button-outlined" label="Save"></button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button pButton type="button" class="p-button-help" label="Save & Exit" (click)="back()"></button>
+  </ng-template>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Name:
+      </span>
+    </div>
+    <div class="col-11">
+      <input type="text" pInputText>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Display name:
+      </span>
+    </div>
+    <div class="col-11">
+      <input type="text" pInputText>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Organization:
+      </span>
+    </div>
+    <div class="col-11">
+      <div class="inupt-select">
+        <p-dropdown [options]="organization" optionLabel="name"></p-dropdown>
+      </div>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Category:
+      </span>
+    </div>
+    <div class="col-11">
+      <div class="inupt-select">
+        <p-dropdown [options]="category" optionLabel="name"></p-dropdown>
+      </div>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Type:
+      </span>
+    </div>
+    <div class="col-11">
+      <div class="inupt-select">
+        <p-dropdown [options]="type" optionLabel="name"></p-dropdown>
+      </div>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Username:
+      </span>
+    </div>
+    <div class="col-11">
+      <input type="text" pInputText>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Password:
+      </span>
+    </div>
+    <div class="col-11">
+      <input type="text" pInputText>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Host:
+      </span>
+    </div>
+    <span class="p-input-icon-left">
+      <i class="pi pi-link"></i>
+      <input type="text" pInputText>
+    </span>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Port:
+      </span>
+    </div>
+    <div class="col-1">
+      <input type="number" pInputText>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Disable SSL:
+      </span>
+    </div>
+    <div class="col-11">
+      <p-inputSwitch></p-inputSwitch>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Email Title:
+      </span>
+    </div>
+    <div class="col-11">
+      <input type="text" pInputText>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Email Content:
+      </span>
+    </div>
+    <div class="col-11">
+      <textarea style="width:100%;" pInputTextarea></textarea>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        test Email:
+      </span>
+    </div>
+    <div class="col-2">
+      <input type="text" pInputText>
+    </div>
+    <div class="col-9">
+      <button pButton type="button" class="p-button-primary p-button-lg-margin-left" label="Test Connection"></button>
+      <button pButton type="button" class="p-button-primary p-button-lg-margin-left" label="Send Test Email"></button>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Return URL:
+      </span>
+    </div>
+    <span class="p-input-icon-left">
+      <i class="pi pi-link"></i>
+      <input type="text" pInputText>
+    </span>
+  </div>
+
+  <ng-template pTemplate="footer">
+
+  </ng-template>
+</p-card>
+
+<div class="card-btn-group">
+  <button pButton type="button" class="p-button-outlined p-button-lg" label="Save"></button>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <button pButton type="button" class="p-button-help p-button-lg" label="Save & Exit" (click)="back()"></button>
+</div>

@@ -1,0 +1,77 @@
+<p-table [value]="products" styleClass="p-datatable-gridlines" [rows]="10" [showCurrentPageReport]="true"
+  responsiveLayout="scroll" [paginator]="true" currentPageReportTemplate="總共 {totalRecords} 筆資料"
+  [rowsPerPageOptions]="[10,25,50]">
+  <ng-template pTemplate="caption">
+    Products
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <button pButton type="button" class="p-button-help p-button-sm" label="Add" routerLink="./add-product"></button>
+
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th class="table-sticky-left">Name</th>
+      <th>Created time</th>
+      <th>Display Name</th>
+      <th>Image</th>
+      <th>Tag</th>
+      <th>Currency</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Sold</th>
+      <th>State</th>
+      <th>Payment providers</th>
+      <th class="table-sticky-right">Action</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-products let-rowIndex="rowIndex">
+    <tr>
+      <td class="table-sticky-left"><a href="">{{products.name}}</a></td>
+      <td>{{products.created_at | date: 'yyyy-MM-dd HH:mm'}}</td>
+      <td>{{products.display_name}}</td>
+      <td><img class="table-logo" src="{{products.image}}"></td>
+      <td>{{products.tag}}</td>
+      <td>{{products.currency}}</td>
+      <td>{{products.price}}</td>
+      <td>{{products.quantity}}</td>
+      <td>{{products.sold}}</td>
+      <td>{{products.state}}</td>
+      <td>
+        <div class="table-providers-btn-group">
+          <ng-container *ngIf="checkData(products.payment_provider); else noneData">
+            <ul>
+              <li style="border-bottom: none;"
+                *ngFor="let item of dataSplitByAmount(this.products.payment_provider, 2,1)">
+                <a href="">
+                  <button pButton pRipple icon="pi pi-pencil" type="button" class="p-button-outlined p-button-secondary"
+                    pTooltip="Edit" tooltipPosition="top"></button>
+                  {{item}}
+                </a>
+              </li>
+            </ul>
+            <ul>
+              <li style="border-bottom: none;"
+                *ngFor="let item of dataSplitByAmount(this.products.payment_provider, 2,2)">
+                <a href="">
+                  <button pButton pRipple icon="pi pi-pencil" type="button" class="p-button-outlined p-button-secondary"
+                    pTooltip="Edit" tooltipPosition="top"></button>
+                  {{item}}
+                </a>
+              </li>
+            </ul>
+          </ng-container>
+          <ng-template #noneData>
+            (empty)
+          </ng-template>
+        </div>
+      </td>
+      <td class="table-sticky-right">
+        <button pButton type="button" class="p-button-outlined p-button-secondary" label="Buy"
+          style="margin-top: 10px; margin-bottom: 10px;" routerLink=""></button>
+        <button pButton type="button" class="p-button-help" label="Edit" style="margin-top: 10px; margin-bottom: 10px;"
+          routerLink="./add-product/{{rowIndex}}"></button>
+        <button pButton type="button" class="p-button-danger" label="Delete"
+          style="margin-top: 10px; margin-bottom: 10px;"></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

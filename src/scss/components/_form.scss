@@ -1,0 +1,550 @@
+// .p-button:enabled {
+//   background-color: $btn-color;
+//   border-color: $btn-color;
+
+//   &:hover {
+//     background-color: darken($btn-color, 10%) !important;
+//     border-color: darken($btn-color, 10%) !important;
+//   }
+// }
+
+// input/dropdown disabled
+input:disabled,
+.p-dropdown.p-disabled {
+  color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0.04);
+  border-color: #d9d9d9;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+
+// checkbox
+.p-checkbox {
+  &.p-checkbox-checked {
+    .p-checkbox-box {
+      background-color: $main-color;
+      border-color: $main-color;
+    }
+  }
+
+  &:not(.p-checkbox-disabled) {
+    .p-checkbox-box {
+      &.p-focus {
+        box-shadow: 0 0 0 0.2rem rgba(255, 186, 38, 0.5);
+        border-color: $main-color;
+      }
+
+      &.p-highlight {
+        &:hover {
+          background-color: $main-color;
+          border-color: $main-color;
+        }
+      }
+    }
+  }
+}
+
+// dropdown
+.inupt-select {
+  width: 100%;
+
+  &.disabled {
+    cursor: not-allowed;
+  }
+
+  .p-dropdown {
+    border-radius: 5px;
+    width: 100%;
+    height: 32px;
+
+    .p-dropdown-label {
+      padding: 0 0 0 11px;
+      display: flex;
+      align-items: center;
+    }
+
+    .p-dropdown-panel {
+      padding: 0;
+    }
+
+    .p-dropdown-items {
+      padding: 4px 0;
+
+      .p-dropdown-item {
+        color: $text;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 22px;
+        min-height: 32px;
+        padding: 5px 12px;
+
+        &.p-highlight {
+          font-weight: 600;
+        }
+      }
+    }
+
+    .p-dropdown-trigger {
+      padding-right: 11px;
+      width: 12px;
+
+      .pi {
+        font-size: 12px;
+        color: rgba(0, 0, 0, 0.25);
+      }
+    }
+  }
+}
+
+// .float-label
+.p-float-label {
+  label {
+    span {
+      font-weight: bold;
+      color: red;
+    }
+  }
+}
+
+// listbox 的右側新增表單
+.list-form-group {
+  margin-top: calc((1.33 * 2 * 16px));
+
+  >* {
+    margin-bottom: 15px !important;
+  }
+
+  .list-form-btn-group {
+    display: flex;
+
+    >* {
+      margin-right: 10px;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.form-group {
+  padding: 10px 0;
+
+  @include media-breakpoint-down(md) {
+    padding: 15px 0;
+  }
+
+  >h3,
+  h4 {
+    margin-top: 0;
+
+    span {
+      color: red;
+    }
+  }
+
+  // 註冊/登入/other
+  .grid {
+    margin-bottom: 10px;
+
+    >* {
+      margin-bottom: 10px;
+
+      // 會員管理視窗
+      >h3 {
+        margin: 0;
+      }
+    }
+  }
+
+  // 訂購餐點視窗
+  .p-field {
+    margin-bottom: 25px;
+  }
+
+  // 新增店家 分量管理
+  .input-group {
+    margin-top: 20px;
+  }
+
+  >* {
+    margin-bottom: 15px;
+  }
+}
+
+// login and register form
+.login-wrapper {
+  background-image: url("../../assets/img/login-background.jpg");
+  width: 100%;
+  min-height: calc(100vh - $footer-Height);
+  display: flex;
+  align-items: center;
+
+  @include media-breakpoint-down(xs) {
+    // margin-bottom: 0;
+    min-height: calc(100vh - $footer-Height-md);
+  }
+
+  .login-box-group {
+    margin: 0 60%;
+
+    @include media-breakpoint-down(md) {
+      padding: 15px;
+    }
+
+    .login-box {
+      background-color: rgb(255, 255, 255);
+      box-shadow: rgb(0 0 0 / 20%) 0px 0px 30px 20px;
+      min-height: 500px;
+      border-radius: 8px;
+      border: 1px solid #dadce0;
+      display: flex;
+      flex-direction: column;
+      margin: 50px 0 50px 0;
+
+      @include media-breakpoint-down(sx) {
+        padding: 20px;
+      }
+
+      @include media-breakpoint-down(md) {
+        padding: 15px;
+        min-height: auto;
+      }
+
+      .login-logo {
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include media-breakpoint-down(md) {
+          margin-bottom: 10px;
+        }
+
+        img {
+          margin-right: 15px;
+          height: 50px;
+        }
+
+        .login-title {
+          sub {
+            font-size: 36px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: $main-color;
+          }
+        }
+      }
+
+      .p-tabview-nav {
+        margin-bottom: 15px;
+      }
+
+      .p-tabview>.p-tabview-panels {
+        padding: 0;
+      }
+
+      li:not(.p-highlight):not(.p-disabled):hover {
+        .p-tabview-nav-link {
+          color: #2374b0;
+          border-color: #f0f0f0 !important;
+        }
+      }
+
+      li .p-tabview-nav-link:not(.p-disabled):focus {
+        box-shadow: none;
+      }
+
+      li .p-tabview-nav-link {
+        font-size: 15px;
+        border-bottom: 1px solid #f0f0f0;
+      }
+
+      li.p-highlight {
+        .p-tabview-nav-link {
+          border-bottom: 2px solid;
+          border-color: #2374b0;
+          color: #2374b0;
+        }
+      }
+
+      .form-group {
+        margin: 0 100px 0 100px;
+
+        .col-12 {
+          margin-bottom: 10px;
+        }
+
+        @include media-breakpoint-down(sx) {
+          margin-top: 15px;
+          padding: 10px;
+        }
+
+        @include media-breakpoint-down(md) {
+          margin-top: 5px;
+          padding: 0;
+        }
+
+        form {
+          display: flex;
+          flex-direction: column;
+          min-height: 148px;
+          justify-content: center;
+        }
+
+        input {
+          padding: 9px 8px 9px 35px;
+        }
+
+        .login-btn-group {
+          margin-top: 50px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+
+          @include media-breakpoint-down(sx) {
+            margin-top: 30px;
+          }
+
+          @include media-breakpoint-down(md) {
+            margin: 0;
+          }
+
+          a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            padding: 0 10px;
+            height: 36px;
+            font-size: 15px;
+            color: $main-color;
+            border-radius: 4px;
+            transition: color 0.2s, background-color 0.2s;
+
+            &:hover {
+              color: #174ea6;
+              background-color: #f8fafe;
+            }
+
+            &.btn {
+              width: 100%;
+              font-size: 14px;
+              padding: 0 24px;
+              background-color: $main-color;
+              color: #fff;
+
+              &:hover {
+                background-color: #185abc;
+              }
+            }
+          }
+
+          .login-text-box {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            font-size: 12px;
+
+            @include media-breakpoint-down(md) {
+              margin-top: 5px;
+            }
+
+            a {
+              font-size: 12px;
+            }
+          }
+        }
+
+        .check-group {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          font-size: 12px;
+
+          .field-checkbox {
+            width: 100%;
+            margin-bottom: 0;
+          }
+
+          a {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            color: #2374b0;
+          }
+        }
+      }
+    }
+
+    footer {
+      padding-top: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .language-select-group {
+        padding: 8px 0;
+        color: #202124;
+        font-size: 12px;
+        line-height: 1.4;
+
+        span {
+          display: flex;
+          align-items: center;
+
+          mat-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+          }
+        }
+      }
+
+      .description-group {
+        display: flex;
+        align-items: center;
+
+        a {
+          border-radius: 2px;
+          color: #757575;
+          font-size: 12px;
+          line-height: 1.4;
+          display: inline-block;
+          padding: 6px 16px;
+          transition: background-color 0.2s;
+
+          &:focus {
+            background-color: #e0e0e0;
+          }
+        }
+      }
+    }
+  }
+}
+
+:host ::ng-deep {
+
+  // InputSwitch
+  .p-inputswitch {
+    min-width: 44px;
+    width: 52px;
+    height: 22px;
+
+    .p-inputswitch-slider {
+      &:before {
+        top: 0;
+        left: 2px !important;
+        margin-top: 2px !important;
+        width: 18px !important;
+        height: 18px !important;
+      }
+    }
+
+    &.p-inputswitch-checked {
+      .p-inputswitch-slider {
+        background-color: $main-color !important;
+
+        &:before {
+          transform: translateX(30px) !important;
+        }
+      }
+    }
+  }
+
+  // input-group
+  .input-row {
+    width: 100%;
+  }
+
+  .input-group {
+    margin-top: 20px;
+    display: flex;
+    align-items: flex-start;
+
+    &:first-of-type {
+      margin-top: 10px;
+    }
+
+    input {
+      width: 100%;
+      border-radius: 5px;
+      padding: 4px 11px;
+      border: 1px solid #d9d9d9;
+      color: $text;
+      font-size: 14px;
+      line-height: 1.5715;
+    }
+
+    >[class*="col"] {
+      padding: 0;
+      display: flex;
+
+      &:first-of-type {
+        margin-top: 5px;
+        align-items: flex-start;
+
+        span {
+          font-size: 14px;
+          line-height: 1.5715;
+        }
+      }
+    }
+
+    .p-inputswitch {
+      width: 44px;
+
+      &.p-inputswitch-checked {
+        .p-inputswitch-slider {
+          &:before {
+            transform: translateX(22px) !important;
+          }
+        }
+      }
+    }
+  }
+
+  .p-input-icon-left {
+    width: 100%;
+
+    >.p-inputtext {
+      padding-left: calc(11px + 16px + 5px);
+    }
+  }
+
+  // placeholder
+  .mat-input-element {
+    color: #202124;
+    font-size: 17px;
+    // height: 28px;
+    // margin: 1px 1px 0 1px;
+    // padding: 13px 15px;
+  }
+
+  .mat-form-field-flex {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  /* Border */
+  .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: $main-color;
+  }
+
+  .mat-form-field {
+    &.mat-focused {
+      .mat-form-field-label {
+        color: $main-color;
+      }
+    }
+  }
+
+  mat-label {
+    font-size: 17px;
+    font-weight: 400;
+  }
+}

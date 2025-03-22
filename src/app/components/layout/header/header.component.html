@@ -1,0 +1,38 @@
+<div class="tab-menu">
+  <div class="header-start">
+    <h1>d2din</h1>
+    <div class="main-menu">
+      <!-- <p-tabMenu [model]="menu" [scrollable]="true"></p-tabMenu> -->
+      <ng-container *ngFor="let menu of menu">
+        <ng-container *ngIf="menu.routerLink; else elseTemplate">
+          <a *ngIf="menu.visible" routerLink={{menu.routerLink}}>{{menu.label}}</a>
+        </ng-container>
+        <ng-template #elseTemplate>
+          <a class="disabled" disabled>{{menu.label}}</a>
+        </ng-template>
+
+      </ng-container>
+      <div class="overlay-menu" (mouseenter)="overlayMenu.toggle($event)" (mouseleave)="overlayMenu.toggle($event)">
+        <i class="pi pi-ellipsis-h"></i>
+        <p-menu #overlayMenu [popup]="true" [model]="overlayMenuItem"></p-menu>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="header-end">
+    <div class="translate-icon" (mouseenter)="translateMenu.toggle($event)" (mouseleave)="translateMenu.toggle($event)">
+      <i class="pi pi-globe"></i>
+      <p-menu #translateMenu [popup]="true" [model]="translateMenuItem"></p-menu>
+    </div>
+
+    <div class="user-box" (mouseenter)="memberMenu.toggle($event)" (mouseleave)="memberMenu.toggle($event)">
+      <img src="./assets/img/icon/profile-user.png" alt="">
+      <span>{{accountName}}</span>
+      <p-menu #memberMenu [popup]="true" [model]="memberMenuItem"></p-menu>
+
+    </div>
+
+  </div>
+
+</div>

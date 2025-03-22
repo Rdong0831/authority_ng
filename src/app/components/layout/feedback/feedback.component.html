@@ -1,0 +1,77 @@
+<div class="feedback-group" *ngIf="showFeedBackBtn">
+  <button (click)="showPositionDialog(true,'right')" pButton pRipple type="button" class="feedback-btn p-button-danger">
+    <img src="./assets/svg/feedback-svgrepo-com.svg" alt="power by aws">
+    Feedback
+  </button>
+</div>
+
+<p-dialog class="feedback-dialog" [(visible)]="displayPosition" [position]="position" [modal]="true"
+  [style]="{width: '320px'}" [draggable]="false" [resizable]="false" [closable]="false"
+  transitionOptions="300ms cubic-bezier(0, 0, 0.2, 1)">
+  <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-secondary"
+    (click)="closePositionDialog(false)"></button>
+
+  <div class="content-text" *ngIf="!openTextArea">
+    <span>How would you rate your</span>
+    <span>experience?</span>
+  </div>
+
+  <div class="feedback-img">
+    <button
+      classList="{{displayPosition ? 'fade-in': null}} {{any_hover ? bad_hover ? '' : 'not-hover' : null}} {{openTextArea ? bad_focus ? 'btn-focus' : 'not-focus' : null}}"
+      (click)="openTextArea = true ; focus(true,0)" (mouseenter)="hover(true,0) ; any_hover = true"
+      (mouseleave)="notHover()">
+      <img src="./assets/img/icon/bad.png">
+      <span>Hate</span>
+    </button>
+    <button
+      classList="{{displayPosition ? 'fade-in': null}} {{any_hover ? dislike_hover ? '' : 'not-hover' : null}} {{openTextArea ? dislike_focus ? 'btn-focus' : 'not-focus' : null}}"
+      (click)="openTextArea = true ; focus(true,1)" (mouseenter)="hover(true,1) ; any_hover = true"
+      (mouseleave)="notHover()">
+      <img src="./assets/img/icon/not-good.png">
+      <span>Dislike</span>
+    </button>
+    <button
+      classList="{{displayPosition ? 'fade-in': null}} {{any_hover ? neutral_hover ? '' : 'not-hover' : null}} {{ openTextArea ? neutral_focus ? 'btn-focus' : 'not-focus' : null}}"
+      (click)="openTextArea = true ; focus(true,2)" (mouseenter)="hover(true,2) ; any_hover = true"
+      (mouseleave)="notHover()">
+      <img src="./assets/img/icon/normal.png">
+      <span>Neutral</span>
+    </button>
+    <button
+      classList="{{displayPosition ? 'fade-in': null}} {{any_hover ? like_hover ? '' : 'not-hover' : null}} {{ openTextArea ? like_focus ? 'btn-focus' : 'not-focus' : null}}"
+      mou (click)="openTextArea = true ; focus(true,3)" (mouseenter)="hover(true,3) ; any_hover = true"
+      (mouseleave)="notHover()">
+      <img src="./assets/img/icon/good.png">
+      <span>Like</span>
+    </button>
+    <button
+      classList="{{displayPosition ? 'fade-in': null}} {{any_hover ? love_hover ? '' : 'not-hover' : null}} {{ openTextArea ? love_focus ? 'btn-focus' : 'not-focus' : null}}"
+      (click)="openTextArea = true ; focus(true,4)" (mouseenter)="hover(true,4) ; any_hover = true"
+      (mouseleave)="notHover()">
+      <img src="./assets/img/icon/love.png">
+      <span>Love</span>
+    </button>
+  </div>
+
+  <form [formGroup]="feedbackForm">
+    <div class="feedback-input-box" *ngIf="openTextArea">
+      <textarea formControlName="content" pInputTextarea class="feedback-input" rows="3"
+        placeholder="Tell us about your experience..." maxlength="100"></textarea>
+      <div class="element-selector">
+        <img src="./assets/img/icon/selector.png">
+      </div>
+    </div>
+  </form>
+
+  <ng-template pTemplate="footer">
+    <div class="footer-text">
+      <span class="footer-icon"></span>
+      <span style="white-space:nowrap;">Power by </span>
+      <a href=""> Hotjar</a>
+    </div>
+    <button *ngIf="openTextArea" pButton
+      classList="disable-footer-btn {{ this.feedbackForm.get('content')?.value ? 'footer-btn' : null}}"
+      label="Send"></button>
+  </ng-template>
+</p-dialog>

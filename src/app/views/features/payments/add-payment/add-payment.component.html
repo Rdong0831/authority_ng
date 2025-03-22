@@ -1,0 +1,255 @@
+<p-card>
+  <ng-template pTemplate="header">
+    <ng-container *ngIf="id; else elseTemplate">
+      修改
+    </ng-container>
+    <ng-template #elseTemplate>
+      新增
+    </ng-template>
+    payment
+    &nbsp;&nbsp;&nbsp;
+    <button pButton type="button" class="p-button-outlined" label="Save"></button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button pButton type="button" class="p-button-help" label="Save & Exit" (click)="back()"></button>
+  </ng-template>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Organization:
+      </span>
+    </div>
+    <div class="col-11">
+      <div class="inupt-select disabled">
+        <p-dropdown [disabled]="true" [options]="organization" optionLabel="name"></p-dropdown>
+      </div>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Name:
+      </span>
+    </div>
+    <div class="col-11">
+      <input [disabled]="true" type="text" pInputText>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Display name:
+      </span>
+    </div>
+    <div class="col-11">
+      <input [disabled]="true" type="text" pInputText>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Provider:
+      </span>
+    </div>
+    <div class="col-11">
+      <input [disabled]="true" type="text" pInputText>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Type:
+      </span>
+    </div>
+    <div class="col-11">
+      <input [disabled]="true" type="text" pInputText>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Product:
+      </span>
+    </div>
+    <div class="col-11">
+      <div class="inupt-select disabled">
+        <p-dropdown [disabled]="true" [options]="organization" optionLabel="name"></p-dropdown>
+      </div>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Price:
+      </span>
+    </div>
+    <div class="col-11">
+      <input [disabled]="true" type="text" pInputText>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Currency:
+      </span>
+    </div>
+    <div class="col-11">
+      <div class="inupt-select disabled">
+        <p-dropdown [disabled]="true" [options]="organization" optionLabel="name"></p-dropdown>
+      </div>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        State:
+      </span>
+    </div>
+    <div class="col-11">
+      <input [disabled]="true" type="text" pInputText>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Message:
+      </span>
+    </div>
+    <div class="col-11">
+      <input [disabled]="true" type="text" pInputText>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Person name:
+      </span>
+    </div>
+    <div class="col-11">
+      <input type="text" pInputText>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Person ID card:
+      </span>
+    </div>
+    <div class="col-11">
+      <input type="text" pInputText>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Person Email:
+      </span>
+    </div>
+    <div class="col-11">
+      <input type="text" pInputText>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Person phone:
+      </span>
+    </div>
+    <div class="col-11">
+      <input type="text" pInputText>
+    </div>
+  </div>
+
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Invoice type:
+      </span>
+    </div>
+    <div class="col-11">
+      <div class="inupt-select">
+        <p-dropdown [options]="organization" optionLabel="name"></p-dropdown>
+      </div>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Invoice title:
+      </span>
+    </div>
+    <div class="col-11">
+      <input [disabled]="true" type="text" pInputText>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Invoice tax ID:
+      </span>
+    </div>
+    <div class="col-11">
+      <input [disabled]="true" type="text" pInputText>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Invoice remark:
+      </span>
+    </div>
+    <div class="col-11">
+      <input type="text" pInputText>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Invoice URL:
+      </span>
+    </div>
+    <div class="col-11">
+      <input [disabled]="true" type="text" pInputText>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Invoice actions:
+      </span>
+    </div>
+    <div class="col-11">
+      <input type="text" pInputText>
+    </div>
+  </div>
+
+
+  <ng-template pTemplate="footer">
+
+  </ng-template>
+</p-card>
+
+<div class="card-btn-group">
+  <button pButton type="button" class="p-button-outlined p-button-lg" label="Save"></button>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <button pButton type="button" class="p-button-help p-button-lg" label="Save & Exit" (click)="back()"></button>
+</div>

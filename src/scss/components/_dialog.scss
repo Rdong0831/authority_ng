@@ -1,0 +1,30 @@
+.min-width {
+  min-width: 80vw;
+}
+
+:host ::ng-deep {
+  .p-dialog {
+
+    @include media-breakpoint-down(md) {
+      width: calc(100% - 20px) !important;
+    }
+
+    .p-dialog-content {
+      overflow: visible !important;
+
+      @include media-breakpoint-down(md) {
+        overflow: scroll !important;
+      }
+    }
+
+    .p-dialog-footer {
+      .p-button {
+        // 抵銷原本auto
+        width: 3rem;
+        i {
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+}

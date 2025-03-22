@@ -1,0 +1,55 @@
+<p-table [value]="tokens" styleClass="p-datatable-gridlines" [rows]="10" [showCurrentPageReport]="true"
+  responsiveLayout="scroll" [paginator]="true" currentPageReportTemplate="總共 {totalRecords} 筆資料"
+  [rowsPerPageOptions]="[10,25,50]">
+  <ng-template pTemplate="caption">
+    Tokens
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <button pButton type="button" class="p-button-help p-button-sm" label="Add" routerLink="./add-token"></button>
+
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th class="table-sticky-left">Name</th>
+      <th>Created time</th>
+      <th>Application</th>
+      <th>Organization</th>
+      <th>User</th>
+      <th>Authorization code</th>
+      <th>Access token</th>
+      <th>Expires in</th>
+      <th>Scope</th>
+      <th class="table-sticky-right">Action</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-tokens let-rowIndex="rowIndex">
+    <tr>
+      <td class="table-sticky-left">
+        <a href="">{{tokens.name}}</a>
+      </td>
+      <td>{{tokens.created_at | date: 'yyyy-MM-dd HH:mm'}}</td>
+      <td>
+        <a href="">{{tokens.application}}</a>
+      </td>
+      <td>
+        <a href="">{{tokens.organization}}</a>
+      </td>
+      <td>
+        <a href="">{{tokens.user}}</a>
+      </td>
+      <td>
+        <a href="">{{tokens.authorization_code}}</a>
+      </td>
+      <td>
+        <a href="">{{tokens.access_token}}</a>
+      </td>
+      <td>{{tokens.expires_in}}</td>
+      <td>{{tokens.scope}}</td>
+      <td class="table-sticky-right">
+        <button pButton type="button" class="p-button-help" label="Edit"
+          style="margin-top: 10px; margin-bottom: 10px;" routerLink="./add-token/{{rowIndex}}"></button>
+        <button pButton type="button" class="p-button-danger" label="Delete"
+          style="margin-top: 10px; margin-bottom: 10px;"></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

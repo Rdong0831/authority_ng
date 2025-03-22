@@ -1,0 +1,385 @@
+.p-datatable-table {
+
+  .p-datatable-thead {
+    tr {
+      th {
+        background-color: $bg-color;
+        border-color: $bord-color !important;
+        padding: 1px 8px !important;
+        white-space: nowrap;
+        color: $text;
+        font-weight: 500 !important;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .p-datatable-tbody {
+    tr {
+      transition: all .3s !important;
+
+      &:hover {
+        background-color: $bg-color;
+
+        .table-sticky-right {
+          background-color: $bg-color;
+        }
+
+        .table-sticky-left {
+          background-color: $bg-color;
+        }
+      }
+
+      // &:nth-child(even) {
+      //   background: #fcfcfc;
+      // }
+
+      td {
+        font-size: 14px;
+        white-space: nowrap;
+        padding: 1px 8px !important;
+        border-color: $bord-color !important;
+
+        a {
+          color: #5936d5;
+        }
+      }
+    }
+
+  }
+}
+
+.table-group {
+  padding: 30px 0;
+
+  @include media-breakpoint-down(md) {
+    padding: 15px 0;
+  }
+}
+
+.table-logo {
+  width: 150px;
+}
+
+// sticky
+
+.table-sticky-right {
+  // border-width: 1px 0 1px 0 !important;
+  background-color: #fff;
+  position: sticky !important;
+  z-index: 2;
+  right: 1px;
+  // border-left: 1px solid #fff !important;
+
+  &::before {
+    bottom: -1px;
+    content: "";
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    position: absolute;
+    transform: translateX(-100%);
+    transition: box-shadow .3s;
+    width: 30px;
+    box-shadow: inset -10px 0 8px -8px rgba(0, 0, 0, 0.15);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: -1px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: $bord-color;
+  }
+
+  .p-button {
+    margin-right: 10px !important;
+  }
+}
+
+.table-sticky-left {
+  // border-width: 1px 0 1px 0 !important;
+  background-color: #fff;
+  position: sticky !important;
+  z-index: 2;
+  left: 1px;
+  // border-left: 1px solid #fff !important;
+
+  &::before {
+    bottom: -1px;
+    content: "";
+    right: 0;
+    top: 0;
+    pointer-events: none;
+    position: absolute;
+    transform: translateX(100%);
+    transition: box-shadow .3s;
+    width: 30px;
+    box-shadow: inset 10px 0 8px -8px rgba(0, 0, 0, 0.15);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: -1px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: $bord-color;
+  }
+
+  .p-button {
+    margin-left: 10px !important;
+  }
+}
+
+:host ::ng-deep {
+  .btn-group {
+    display: flex;
+    align-items: center;
+
+    >* {
+      margin-right: 10px;
+    }
+  }
+
+  // providers 按鈕群樣式
+  .table-providers-btn-group {
+    display: flex;
+    align-items: flex-start;
+
+    ul {
+      max-width: 50%;
+      flex: 0 0 50%;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      li {
+        padding: 2px;
+        border-bottom: 1px solid #f0f0f0;
+
+        &:nth-of-type(4) {
+          border-bottom: none;
+        }
+
+        a {
+          font-size: 14px;
+          line-height: 14px;
+          display: flex;
+          align-items: center;
+        }
+
+        button {
+          margin-right: 5px;
+          padding: 0;
+          width: 24px;
+          height: 24px;
+
+          span {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+
+  }
+
+  .p-datatable-header {
+    padding: 1px 8px !important;
+    border-radius: 5px 5px 0 0;
+    background-color: #fff;
+    border: 1px solid $bord-color;
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: 500 !important;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+
+    .table-header-flex {
+      display: flex;
+
+      @include media-breakpoint-down(md) {
+        flex-direction: column;
+        align-items: center;
+
+        .p-float-label {
+          margin-bottom: 25px;
+        }
+
+        >* {
+          width: 100%;
+          text-align: center;
+
+          input,
+          .p-calendar {
+            width: 100%;
+
+            >* {
+              // margin-bottom: 10px;
+            }
+          }
+
+          @include media-breakpoint-down(md) {
+            margin-bottom: 10px;
+          }
+        }
+      }
+
+      >* {
+        margin-right: 10px;
+
+        @include media-breakpoint-down(md) {
+          margin-right: 0;
+        }
+      }
+
+      .dateInput-flex {
+        display: flex;
+        align-items: center;
+
+        >* {
+          @include media-breakpoint-down(md) {
+            width: 100%;
+          }
+        }
+
+        >* {
+          >* {
+            margin-left: 15px;
+
+            @include media-breakpoint-down(md) {
+              text-align: center;
+              margin-left: 0;
+            }
+          }
+
+          &:first-child {
+            >* {
+              margin-left: 0;
+            }
+          }
+        }
+
+        @include media-breakpoint-down(md) {
+          flex-direction: column;
+        }
+
+
+      }
+
+      .table-search {
+        margin-left: auto;
+        margin-right: 0;
+
+        @include media-breakpoint-down(md) {
+          order: -1;
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  // table page start
+
+  .p-paginator {
+    margin: 16px 0;
+    padding: 0;
+    border: none;
+    font-size: 14px;
+    justify-content: flex-end;
+
+    .p-paginator-current {
+      height: auto;
+    }
+
+    button {
+      color: rgba(0, 0, 0, .85);
+      padding: 0 6px;
+      transition: none !important;
+      height: 24px !important;
+      line-height: 22px;
+      margin: 0;
+      min-width: 24px !important;
+    }
+
+    .p-paginator-pages {
+      button {
+        border: 1px solid #fff;
+        border-radius: 5px;
+
+        &.p-highlight {
+          background-color: #fff;
+          border-color: $main-color;
+          color: $main-color;
+        }
+      }
+    }
+
+    .p-inputwrapper {
+      .p-paginator-rpp-options {
+        padding: 0 7px;
+        height: 24px;
+        border-color: #d9d9d9;
+        align-items: center;
+
+        .p-dropdown-label {
+          padding: 0;
+          padding-right: 10px;
+          font-size: 14px;
+        }
+
+        .p-dropdown-trigger {
+          width: auto;
+
+          .p-dropdown-trigger-icon {
+            font-size: 10px;
+          }
+        }
+      }
+    }
+
+    .p-dropdown {
+      // height: auto !important;
+    }
+
+    .p-dropdown-items-wrapper {
+      .p-dropdown-items {
+        padding: 5px 0;
+      }
+
+      .p-dropdown-item {
+        padding: 0;
+        padding: 5px 5px;
+        text-align: center;
+
+        span {
+          font-size: 14px;
+        }
+      }
+
+
+    }
+
+    >* {
+      font-size: 14px;
+
+      >* {
+        font-size: 14px;
+      }
+    }
+  }
+
+  // table page end
+
+  .p-datatable-footer {
+    padding: 0 !important;
+    border: none;
+    background-color: #fff;
+    color: $text;
+    font-weight: 500 !important;
+    font-size: 14px;
+  }
+}

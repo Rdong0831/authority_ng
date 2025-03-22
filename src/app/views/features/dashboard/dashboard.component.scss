@@ -1,0 +1,72 @@
+@import "/src/scss/custom";
+
+$border-color: #013856;
+
+.lists-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-radius: 15px;
+  padding-top: 20px;
+  margin: 0 20px 0 20px;
+
+  @include media-breakpoint-down(md) {
+    flex-direction: column;
+  }
+
+  > * {
+    width: calc((100% - (90px * 4)) / 4);
+    margin-right: 20px;
+    margin-left: 20px;
+
+    @include media-breakpoint-down(md) {
+      width: 100%;
+      margin-right: 0;
+    }
+  }
+
+  .button-content {
+    position: relative;
+    border-radius: 5px;
+    // padding: 15px;
+    color: black;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #f0f0f0;
+    transition: all 0.3s;
+
+    &:hover {
+      border-color: transparent;
+      box-shadow: 0 1px 2px -2px rgb(0 0 0 / 16%), 0 3px 6px 0 rgb(0 0 0 / 12%),
+        0 5px 12px 4px rgb(0 0 0 / 9%);
+    }
+
+    .button-text {
+      padding: 24px;
+      margin-bottom: 40px;
+
+      h4 {
+        margin: 0 0 8px 0;
+        color: $text;
+        font-size: 16px;
+        font-weight: lighter;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      span {
+        font-size: 14px;
+        font-weight: lighter;
+        color: rgba(0, 0, 0, 0.45);
+      }
+    }
+
+    img {
+      max-height: 200px;
+      max-width: 100%;
+      padding: 20px;
+    }
+  }
+}

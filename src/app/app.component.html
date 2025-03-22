@@ -1,0 +1,7 @@
+<span hidden>v{{ currentApplicationVersion }}</span>
+<router-outlet></router-outlet>
+<p-toast [breakpoints]="{'920px': {width: 'calc(100% - 20px)', left: '10px' ,right: '10px'}}"></p-toast>
+<p-confirmDialog icon="pi pi-exclamation-triangle"></p-confirmDialog>
+<p-blockUI [blocked]="blocked">
+  <p-progressSpinner></p-progressSpinner>
+</p-blockUI>

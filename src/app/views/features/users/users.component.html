@@ -1,0 +1,63 @@
+<p-table [value]="users" styleClass="p-datatable-gridlines" [rows]="10" [showCurrentPageReport]="true"
+  responsiveLayout="scroll" [paginator]="true" currentPageReportTemplate="總共 {totalRecords} 筆資料"
+  [rowsPerPageOptions]="[10,25,50]">
+  <ng-template pTemplate="caption">
+    Users
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <button pButton type="button" class="p-button-help p-button-sm" label="Add" routerLink="add-user"></button>
+
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Organization</th>
+      <th>Application</th>
+      <th>Name</th>
+      <th>Created time</th>
+      <th>Display Name</th>
+      <th>Avatar</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Affiliation</th>
+      <th>Country Region</th>
+      <th>Tag</th>
+      <th>Is Admin</th>
+      <th>Is Global Admin</th>
+      <th>Is Forbidden</th>
+      <th>Is Delete</th>
+      <th class="table-sticky-right">Action</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-users let-rowIndex="rowIndex">
+    <tr>
+      <td>{{users.organization}}</td>
+      <td>{{users.application}}</td>
+      <td>{{users.name}}</td>
+      <td>{{users.creat_time | date: 'yyyy-MM-dd HH:mm'}}</td>
+      <td>{{users.display_name}}</td>
+      <td>{{users.avatar}}</td>
+      <td>{{users.email}}</td>
+      <td>{{users.phone}}</td>
+      <td>{{users.affiliation}}</td>
+      <td>{{users.country_region}}</td>
+      <td>{{users.tag}}</td>
+      <td>
+        <p-inputSwitch [(ngModel)]="users.is_admin"></p-inputSwitch>
+      </td>
+      <td>
+        <p-inputSwitch [(ngModel)]="users.is_global_admin"></p-inputSwitch>
+      </td>
+      <td>
+        <p-inputSwitch [(ngModel)]="users.is_forbidden"></p-inputSwitch>
+      </td>
+      <td>
+        <p-inputSwitch [(ngModel)]="users.is_delete"></p-inputSwitch>
+      </td>
+      <td class="table-sticky-right">
+        <button routerLink="add-user/{{rowIndex}}" pButton type="button" class="p-button-help" label="Edit"
+          style="margin-top: 10px; margin-bottom: 10px;"></button>
+        <button pButton type="button" class="p-button-danger" label="Delete"
+          style="margin-top: 10px; margin-bottom: 10px;"></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

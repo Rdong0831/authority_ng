@@ -1,0 +1,32 @@
+:host ::ng-deep {
+  .p-card {
+    box-shadow: none;
+    border: 1px solid $bord-color;
+
+    .p-card-body {
+      padding: 12px;
+    }
+  }
+
+  .p-card-header {
+    background-color: #fafafa;
+    border-bottom: 1px solid $bord-color;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+  }
+
+  .p-card-content {
+    padding: 0;
+  }
+
+  .p-card-footer {}
+}
+
+.card-btn-group {
+  margin-top: 20px;
+  margin-left: 40px;
+}

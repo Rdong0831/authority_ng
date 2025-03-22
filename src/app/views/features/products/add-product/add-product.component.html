@@ -1,0 +1,196 @@
+<p-card>
+  <ng-template pTemplate="header">
+    <ng-container *ngIf="id; else elseTemplate">
+      修改
+    </ng-container>
+    <ng-template #elseTemplate>
+      新增
+    </ng-template>
+    product
+    &nbsp;&nbsp;&nbsp;
+    <button pButton type="button" class="p-button-outlined" label="Save"></button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button pButton type="button" class="p-button-help" label="Save & Exit" (click)="back()"></button>
+  </ng-template>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Name:
+      </span>
+    </div>
+    <div class="col-11">
+      <input type="text" pInputText>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Display name:
+      </span>
+    </div>
+    <div class="col-11">
+      <input type="text" pInputText>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Image:
+      </span>
+    </div>
+    <div class="col-11">
+      <div class="input-row">
+        <div class="input-group">
+          <div class="col-1">
+            <span>
+              URL:
+            </span>
+          </div>
+          <span class="p-input-icon-left">
+            <i class="pi pi-link"></i>
+            <input type="text" pInputText>
+          </span>
+        </div>
+        <div class="input-group">
+          <div class="col-1">
+            <span>
+              Preview:
+            </span>
+          </div>
+          <div class="col-11">
+            <input type="text" pInputText>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Tag:
+      </span>
+    </div>
+    <div class="col-11">
+      <input type="text" pInputText>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Detail:
+      </span>
+    </div>
+    <div class="col-11">
+      <input type="text" pInputText>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Currency:
+      </span>
+    </div>
+    <div class="col-11">
+      <div class="inupt-select">
+        <p-dropdown [options]="currency" optionLabel="name"></p-dropdown>
+      </div>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Price:
+      </span>
+    </div>
+    <div class="col-1">
+      <input type="number" pInputText>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Quantity:
+      </span>
+    </div>
+    <div class="col-1">
+      <input type="number" pInputText>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Sold:
+      </span>
+    </div>
+    <div class="col-1">
+      <input type="number" pInputText>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Payment providers:
+      </span>
+    </div>
+    <div class="col-11">
+      <input type="text" pInputText>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Return URL:
+      </span>
+    </div>
+    <span class="p-input-icon-left">
+      <i class="pi pi-link"></i>
+      <input type="text" pInputText>
+    </span>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        State:
+      </span>
+    </div>
+    <div class="col-11">
+      <div class="inupt-select">
+        <p-dropdown [options]="state" optionLabel="name"></p-dropdown>
+      </div>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-1">
+      <span>
+        Preview:
+      </span>
+    </div>
+    <div class="col-11">
+      <button pButton type="button" class="p-button-primary p-button-lg" label="Test buy page.."></button>
+    </div>
+  </div>
+
+  <ng-template pTemplate="footer">
+
+  </ng-template>
+</p-card>
+
+<div class="card-btn-group">
+  <button pButton type="button" class="p-button-outlined p-button-lg" label="Save"></button>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <button pButton type="button" class="p-button-help p-button-lg" label="Save & Exit" (click)="back()"></button>
+</div>

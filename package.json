@@ -1,0 +1,49 @@
+{
+  "name": "authority-ng",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve --port 4209 --open",
+    "build": "node git-version.js && ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^14.2.6",
+    "@angular/cdk": "^14.2.5",
+    "@angular/common": "^14.2.6",
+    "@angular/compiler": "^14.2.6",
+    "@angular/core": "^14.2.6",
+    "@angular/forms": "^14.2.6",
+    "@angular/platform-browser": "^14.2.6",
+    "@angular/platform-browser-dynamic": "^14.2.6",
+    "@angular/router": "^14.2.6",
+    "primeflex": "^3.2.1",
+    "primeicons": "^6.0.1",
+    "primeng": "^14.1.2",
+    "rxjs": "~7.5.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.11.4"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^14.2.6",
+    "@angular/cli": "~14.2.6",
+    "@angular/compiler-cli": "^14.2.6",
+    "@schematics/angular": "^15.0.2",
+    "@types/jasmine": "~4.0.0",
+    "@types/node": "^18.11.18",
+    "git-describe": "^4.1.1",
+    "jasmine-core": "~4.3.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.0.0",
+    "typescript": "~4.7.2"
+  },
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.1.",
+  "main": "karma.conf.js",
+  "author": "max",
+  "license": "ISC"
+}

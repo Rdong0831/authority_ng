@@ -1,0 +1,40 @@
+::ng-deep {}
+
+.input-group {
+  p-calendar {
+    width: 100%;
+
+    .p-calendar {
+      width: 100%;
+    }
+  }
+}
+
+.p-calendar {
+  .p-datepicker {
+    table {
+      td {
+        padding: 4px;
+
+        >span {
+          width: 25px;
+          height: 25px;
+        }
+      }
+    }
+
+    .p-timepicker {
+      padding: 5px;
+
+      span {
+        font-size: 16px;
+      }
+
+      button {
+        width: 25px;
+        height: 25px;
+      }
+    }
+  }
+
+}

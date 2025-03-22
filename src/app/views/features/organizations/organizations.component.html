@@ -1,0 +1,48 @@
+<p-table [value]="organization" styleClass="p-datatable-gridlines" [rows]="10" [showCurrentPageReport]="true"
+  responsiveLayout="scroll" [paginator]="true" currentPageReportTemplate="總共 {totalRecords} 筆資料"
+  [rowsPerPageOptions]="[10,25,50]">
+  <ng-template pTemplate="caption">
+    Organization
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <button pButton type="button" class="p-button-help p-button-sm" label="Add" routerLink="./add-organization"></button>
+
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Name</th>
+      <th>Created time</th>
+      <th>Display name</th>
+      <th>Favicon</th>
+      <th>Website url</th>
+      <th>Password Type</th>
+      <th>Password Salt</th>
+      <th>Default Avatar</th>
+      <th>Soft Deletion</th>
+      <th class="table-sticky-right">Action</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-organization let-rowIndex="rowIndex">
+    <tr>
+      <td><a href="">{{organization.name}}</a></td>
+      <td>{{organization.created_at}}</td>
+      <td>{{organization.display_name}}</td>
+      <td>{{organization.favicon}}</td>
+      <td><a href="">{{organization.url}}</a></td>
+      <td>{{organization.password_type}}</td>
+      <td>{{organization.password_salt}}</td>
+      <td>{{organization.default_avatar}}</td>
+      <!-- <td>
+        <p-inputSwitch [(ngModel)]="organization.default_avatar"></p-inputSwitch>
+      </td> -->
+      <td>
+        <p-inputSwitch [(ngModel)]="organization.soft_deletion"></p-inputSwitch>
+      </td>
+      <td class="table-sticky-right">
+        <button pButton type="button" class="p-button-help" label="Edit"
+          style="margin-top: 10px; margin-bottom: 10px;" routerLink="./add-organization/{{rowIndex}}"></button>
+        <button pButton type="button" class="p-button-danger" label="Delete"
+          style="margin-top: 10px; margin-bottom: 10px;"></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

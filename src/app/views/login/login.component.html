@@ -1,0 +1,141 @@
+<div class="login-wrapper">
+  <div class="login-box-group">
+    <div class="login-box">
+      <div class="language-box">
+        <div class="translate-icon" (mouseenter)="translateMenu.toggle($event)"
+          (mouseleave)="translateMenu.toggle($event)">
+          <i class="pi pi-globe"></i>
+          <p-menu #translateMenu [popup]="true" [model]="translateMenuItem"></p-menu>
+
+        </div>
+      </div>
+      <div class="login-logo">
+        <div class="login-title">
+          <sub>Hs 後台管理</sub>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <p-tabView (onChange)="changeLoginBtn($event)">
+          <p-tabPanel header="密碼">
+            <form [formGroup]="loginForm">
+              <div class="grid p-fluid">
+                <div class="col-12">
+                  <span class="p-input-icon-left">
+                    <i class="pi pi-user"
+                      [ngClass]="{'ng-dirty': loginForm.controls['account'].hasError('required') && loginForm.controls['account'].touched}"></i>
+                    <input placeholder="帳號、Email或手機號碼"
+                      [ngClass]="{'ng-dirty': loginForm.controls['account'].hasError('required') && loginForm.controls['account'].touched}"
+                      type="text" formControlName="account" pInputText (keyup.enter)="submit()">
+                  </span>
+                  <small
+                    *ngIf="loginForm.controls['account'].hasError('required') && loginForm.controls['account'].touched"
+                    class="p-error block">請輸入您的帳號、Email或手機號碼！</small>
+                </div>
+
+                <div class="col-12">
+                  <span class="p-input-icon-left">
+                    <i class="pi pi-lock"
+                      [ngClass]="{'ng-dirty': loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched}"></i>
+                    <input type="password" pPassword placeholder="密碼" formControlName="password"
+                      (keyup.enter)="submit()" [feedback]="false"
+                      [ngClass]="{'ng-dirty': loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched}"
+                      styleClass="p-password p-component p-inputwrapper p-input-icon-right">
+                  </span>
+                  <small
+                    *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched"
+                    class="p-error block">請輸入您的密碼！</small>
+                </div>
+              </div>
+            </form>
+          </p-tabPanel>
+          <p-tabPanel header="驗證碼">
+            <form [formGroup]="loginForm">
+              <div class="grid p-fluid">
+                <div class="col-12">
+                  <span class="p-input-icon-left">
+                    <i class="pi pi-user"
+                      [ngClass]="{'ng-dirty': loginForm.controls['account'].hasError('required') && loginForm.controls['account'].touched}"></i>
+                    <input placeholder="帳號、Email或手機號碼"
+                      [ngClass]="{'ng-dirty': loginForm.controls['account'].hasError('required') && loginForm.controls['account'].touched}"
+                      type="text" formControlName="account" pInputText (keyup.enter)="submit()">
+                  </span>
+                  <small
+                    *ngIf="loginForm.controls['account'].hasError('required') && loginForm.controls['account'].touched"
+                    class="p-error block">請輸入您的帳號、Email或手機號碼！</small>
+                </div>
+
+                <div class="col-12">
+                  <span class="p-inputgroup">
+                    <span class="p-input-icon-left">
+                      <i class="pi pi-shield"
+                        [ngClass]="{'ng-dirty': loginForm.controls['captcha'].hasError('required') && loginForm.controls['captcha'].touched}"></i>
+                      <input type="text" pInputText placeholder="輸入你的驗證碼"
+                        [ngClass]="{'ng-dirty': loginForm.controls['captcha'].hasError('required') && loginForm.controls['captcha'].touched}"
+                        type="text" formControlName="captcha" (keyup.enter)="submit()">
+                    </span>
+                    <button type="button" pButton pRipple label="發送驗證碼" styleClass="p-button-warn"></button>
+                  </span>
+                  <small
+                    *ngIf="loginForm.controls['captcha'].hasError('required') && loginForm.controls['captcha'].touched"
+                    class="p-error block">請輸入您的驗證碼！</small>
+                </div>
+              </div>
+            </form>
+          </p-tabPanel>
+          <p-tabPanel header="Web身分驗證">
+            <form [formGroup]="loginForm">
+              <div class="grid p-fluid">
+                <div class="col-12">
+                  <span class="p-input-icon-left">
+                    <i class="pi pi-user"
+                      [ngClass]="{'ng-dirty': loginForm.controls['account'].hasError('required') && loginForm.controls['account'].touched}"></i>
+                    <input placeholder="帳號、Email或手機號碼"
+                      [ngClass]="{'ng-dirty': loginForm.controls['account'].hasError('required') && loginForm.controls['account'].touched}"
+                      type="text" formControlName="account" pInputText (keyup.enter)="submit()">
+                  </span>
+                  <small
+                    *ngIf="loginForm.controls['account'].hasError('required') && loginForm.controls['account'].touched"
+                    class="p-error block">請輸入您的帳號、Email或手機號碼！</small>
+                </div>
+              </div>
+            </form>
+          </p-tabPanel>
+        </p-tabView>
+
+        <div class="check-group">
+          <div class="field-checkbox">
+            <p-checkbox [(ngModel)]="checked" [binary]="true" inputId="binary"></p-checkbox>
+            <label for="binary">下次自動登入</label>
+          </div>
+          <a (click)="forgetPassword()">忘記密碼 ?</a>
+        </div>
+
+        <!-- <div class="captcha-group">
+        <re-captcha (resolved)="resolved($event)" [siteKey]="siteKey"></re-captcha>
+      </div> -->
+
+        <div class="login-btn-group">
+          <a class="btn" (click)="submit()">
+            <ng-container *ngIf="!webCaptcha;else normal">
+              登入
+            </ng-container>
+            <ng-template #normal>
+              Web身分驗證
+            </ng-template>
+          </a>
+
+          <div class="login-text-box">
+            沒有帳號 ?
+            <a routerLink="/register">點這裡註冊</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <app-feedback></app-feedback>
+
+  </div>
+</div>
+
+<app-footer></app-footer>

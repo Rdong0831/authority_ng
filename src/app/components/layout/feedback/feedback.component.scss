@@ -1,0 +1,33 @@
+.feedback-group {
+  transform: rotate(-90deg);
+  position: fixed;
+  right: -36px;
+  top: 45%;
+  z-index: 999;
+
+  .feedback-btn {
+    padding: 4px 10px !important;
+
+    transform: translateY(2px);
+    border-radius: 4px !important;
+    border-bottom-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+
+    font-size: unset;
+    height: unset;
+    border: unset;
+
+    img {
+      padding-top: 5px;
+      transform: rotate(90deg);
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  .p-button-danger:enabled:hover {
+    background: #ff3535;
+    border-color: #ff3535;
+    transform: translateY(0);
+    box-shadow: 0 0 35px 2px rgb(0 0 0 / 24%);
+  }
+}

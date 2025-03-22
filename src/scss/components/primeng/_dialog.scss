@@ -1,0 +1,284 @@
+::ng-deep {
+  .p-dialog {
+    .p-dialog-header {
+      @include media-breakpoint-down(md) {
+        padding: 10px;
+      }
+    }
+
+    .p-dialog-content {
+      @include media-breakpoint-down(md) {
+        padding: 0 10px 10px 10px;
+      }
+    }
+
+    .p-dialog-footer {
+      .p-confirm-dialog-reject {
+        background-color: #64748b;
+      }
+
+      .p-confirm-dialog-accept {
+        background-color: #ef4444;
+      }
+
+      @include media-breakpoint-down(md) {
+        padding: 0 10px 15px 10px;
+      }
+    }
+  }
+}
+
+.feedback-dialog {
+  .p-dialog {
+    box-shadow: rgb(0 0 0 / 35%) 0 6px 100px 0;
+  }
+
+  .p-dialog-header {
+    padding: 0 !important;
+    border-top-right-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+
+    .p-dialog-header-icon {
+      width: 1.5rem !important;
+      height: 1.5rem !important;
+      color: #fff !important;
+      background: #4d5167 !important;
+
+      &:last-child {
+        margin-right: 1rem !important;
+        margin-bottom: 1rem !important;
+      }
+    }
+  }
+
+  .p-dialog-content {
+    display: flex;
+    flex-direction: column;
+    padding: 0 !important;
+    min-height: 80px;
+
+    .p-button-secondary {
+      width: 27px !important;
+      height: 27px !important;
+      position: absolute;
+      top: -13px;
+      right: 18px;
+      padding: 0.68rem 0 !important;
+      background: #4d5167;
+
+      span {
+        font-size: 12px;
+        font-weight: bolder;
+      }
+    }
+
+    .content-text {
+      width: 100%;
+      padding: 30px 30px 0 30px;
+      > * {
+        display: flex;
+        justify-content: center;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+    }
+
+    .feedback-img {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 12px;
+      overflow-y: hidden;
+      padding-top: 30px;
+
+      button {
+        border: none;
+        background: transparent;
+
+        &::after {
+          content: "";
+          opacity: 0;
+          display: block;
+          margin: 5px auto 0;
+          width: 1px;
+          height: 1px;
+          border-left: 4px solid transparent;
+          border-right: 4px solid transparent;
+          border-bottom: 5px solid #eaeaeb;
+        }
+      }
+
+      .fade-in {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        opacity: 0;
+        animation: fade-in 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.35) 0.3s
+          forwards;
+        position: relative;
+        &:nth-of-type(2) {
+          animation-delay: 0.4s;
+        }
+        &:nth-of-type(3) {
+          animation-delay: 0.475s;
+        }
+        &:nth-of-type(4) {
+          animation-delay: 0.55s;
+        }
+        &:nth-of-type(5) {
+          animation-delay: 0.625s;
+        }
+
+        &:hover {
+          opacity: 1 !important;
+
+          span {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      }
+
+      span {
+        padding-top: 10px;
+        font-size: 12px;
+        color: #999;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: all 0.2s ease-in-out;
+      }
+
+      .not-hover {
+        opacity: 0.5 !important;
+      }
+
+      .btn-focus {
+        opacity: 1 !important;
+
+        span {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        &::after {
+          content: "";
+          opacity: 1;
+          display: block;
+          margin: 5px auto 0;
+          width: 1px;
+          height: 1px;
+          border-left: 4px solid transparent;
+          border-right: 4px solid transparent;
+          border-bottom: 5px solid #eaeaeb;
+        }
+      }
+
+      .not-focus {
+        img {
+          filter: grayscale(100%);
+        }
+        opacity: 0.5 !important;
+      }
+    }
+
+    .feedback-input-box {
+      .feedback-input {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+        display: block;
+        padding: 12px 20px !important;
+        height: 105px !important;
+        width: 100%;
+        max-width: 320px;
+        line-height: 18px !important;
+        resize: none;
+        background: #eaeaeb !important;
+        border: 0 !important;
+        overflow: auto;
+        border-radius: 0;
+
+        &:focus {
+          box-shadow: none;
+        }
+      }
+
+      .element-selector {
+        background: #eaeaeb;
+        padding: 10px 20px;
+        position: relative;
+        font-size: 16px;
+      }
+    }
+  }
+
+  .p-dialog-footer {
+    text-align: left !important;
+    border-bottom-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    padding: 10px 24px 12px 24px !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .footer-text {
+      font-size: 12px;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+      a {
+        color: black;
+        text-decoration: underline;
+      }
+    }
+
+    .footer-icon {
+      background-image: url(https://script.hotjar.com/widget_icons_light.766225.png);
+      background-repeat: no-repeat;
+      background-position: -16px -1px;
+      margin-right: 4px;
+      width: 16px;
+      height: 16px;
+      display: inline-block !important;
+      zoom: 1;
+      vertical-align: middle;
+    }
+
+    button {
+      margin: 0 !important;
+    }
+
+    .disable-footer-btn {
+      font-size: 14px !important;
+      font-weight: 500 !important;
+      padding: 6px 16px !important;
+      border: 0 !important;
+      border-radius: 5px !important;;
+      outline: 0 !important;
+      min-height: initial !important;
+      width: auto !important;
+      min-width: initial !important;
+      background: #f1f2f6 !important;
+      color: rgba(0, 0, 0, 0.43) !important;
+      box-shadow: none !important;
+
+      * {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+      }
+    }
+
+    .footer-btn {
+      background: #f4364c !important;
+      color: #ffffff !important;
+
+      &:hover {
+        background: #ea0d27 !important;
+      }
+    }
+  }
+
+  .p-dialog-mask {
+    left: -15px;
+  }
+
+  .p-component-overlay {
+    background-color: transparent !important;
+  }
+}
